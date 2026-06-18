@@ -63,21 +63,24 @@
       "position": {
         "x": 240,
         "y": 780
-      }
+      },
+      "icon": "client"
     },
     {
       "id": "n2",
       "position": {
         "x": 380,
         "y": 780
-      }
+      },
+      "icon": "client"
     },
     {
       "id": "n3",
       "position": {
         "x": 580,
         "y": 240
-      }
+      },
+      "icon": "client"
     },
     {
       "id": "n4",

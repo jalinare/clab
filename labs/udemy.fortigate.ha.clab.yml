@@ -35,10 +35,16 @@ topology:
       group: switch
     n1:
       group: client
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
     n2:
       group: client
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
     n3:
       group: client
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
     rtr2:
       group: router
   links:
@@ -59,6 +65,5 @@ topology:
     - endpoints: [ "fw1:port6", "fw2:port6" ]
     - endpoints: [ "fw1:port7", "fw2:port7" ]
 
-    - endpoints: [ "rtr2:e0/2", "isp:1/0"]
-    - endpoints: [ "rtr2:e0/3", "n3:eth1"]
-
+    - endpoints: [ "rtr2:e0/2", "isp:1/0" ]
+    - endpoints: [ "rtr2:e0/3", "n3:eth1" ]
