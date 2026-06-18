@@ -1,0 +1,57 @@
+# topology documentation: 
+name: fortigate
+prefix: basic
+
+topology:
+  groups:
+    fortigate:
+      kind: fortinet_fortigate
+      image: jalinare/vr-fortios:7.0.3
+    client:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
+    switch:
+      kind: cisco_iol
+      image: jalinare/cisco_iol:L2-17.16.01
+      type: L2
+    router:
+      kind: cisco_iol
+      image: jalinare/cisco_iol:17.16.01
+      type: iol
+  nodes:
+    virbr0:
+      kind: bridge
+    isp:
+      group: router
+      startup-config: "configs/isp.cfg.partial"
+    fw1:
+      group: fortigate
+    fw2:
+      group: fortigate
+    sw1:
+      group: switch
+    sw2:
+      group: switch
+    n1:
+      group: client
+    n2:
+      group: client
+    n3:
+      group: client
+    n4:
+      group: client
+    rtr2:
+      group: router
+  links:
+    - endpoints: [ "isp:e0/1", "virbr0:eth2" ]
+    - endpoints: [ "isp:e0/2", "fw1:port2" ]
+    - endpoints: [ "isp:e0/3", "fw1:port3" ]
+    - endpoints: [ "isp:e1/0", "rtr2:e0/1" ]
+    - endpoints: [ "rtr2:e0/2", "fw2:port2" ]
+    - endpoints: [ "rtr2:e0/3", "fw2:port3" ]
+    - endpoints: [ "fw1:port4", "sw1:e0/1" ] 
+    - endpoints: [ "fw2:port4", "n2:eth1" ]
+    - endpoints: [ "fw2:port5", "n4:eth1" ]
+    - endpoints: [ "sw1:e0/2", "n1:eth1" ]
+    - endpoints: [ "sw1:e0/3", "n3:eth1" ]
+

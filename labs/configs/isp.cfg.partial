@@ -1,0 +1,140 @@
+
+!
+! Last configuration change at 01:59:32 UTC Fri Apr 3 2026 by admin
+!
+version 17.15
+service timestamps debug datetime msec
+service timestamps log datetime msec
+!
+hostname isp
+!
+boot-start-marker
+boot-end-marker
+!
+!
+vrf definition clab-mgmt
+ description clab-mgmt
+ !
+ address-family ipv4
+ exit-address-family
+ !
+ address-family ipv6
+ exit-address-family
+!
+no aaa new-model
+!
+ip dhcp pool pool1
+ network 203.0.113.0 255.255.255.252
+ default-router 203.0.113.1 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool pool2
+ network 203.0.113.4 255.255.255.252
+ default-router 203.0.113.5 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool pool3
+ network 203.0.113.8 255.255.255.252
+ default-router 203.0.113.9 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool pool4
+ network 203.0.113.12 255.255.255.252
+ default-router 203.0.113.13 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool pool5
+ network 203.0.113.16 255.255.255.252
+ default-router 203.0.113.17 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+ip dhcp pool pool6
+ network 203.0.113.20 255.255.255.252
+ default-router 203.0.113.21 
+ dns-server 8.8.8.8 8.8.4.4 
+!
+!
+!
+no ip domain lookup
+ip domain name lab
+ip cef
+login on-success log
+ipv6 unicast-routing
+ipv6 cef
+!
+!
+!
+!
+spanning-tree mode rapid-pvst
+!
+!
+username admin privilege 15 secret 9 $9$saohb6B3t7yR2U$j9f/0MdOqLgkQSgkZ1U6/TQGXJotSbuosVCdQ0ZCxmQ
+!
+interface Ethernet0/1
+ description internet
+ ip address dhcp
+ ip nat outside
+!
+interface Ethernet0/2
+ description site-a
+ ip address 203.0.113.1 255.255.255.252
+ ip nat inside
+!
+interface Ethernet0/3
+ description site-a
+ ip address 203.0.113.5 255.255.255.252
+ ip nat inside
+!
+interface Ethernet1/0
+ description site-b
+ ip address 203.0.113.9 255.255.255.252
+ ip nat inside
+!
+interface Ethernet1/1
+ description site-b
+ ip address 203.0.113.13 255.255.255.252
+ ip nat inside
+!
+interface Ethernet1/2
+ description site-c
+ ip address 203.0.113.17 255.255.255.252
+ ip nat inside
+!
+interface Ethernet1/3
+ description site-c
+ ip address 203.0.113.21 255.255.255.252
+ ip nat inside
+!
+ip forward-protocol nd
+!
+!
+no ip http server
+no ip http secure-server
+ip tftp source-interface Ethernet0/0
+ip nat inside source list SITES interface Ethernet0/1 overload
+ip ssh bulk-mode 131072
+ip ssh pubkey-chain
+ username admin
+  key-hash ssh-ed25519 BC966013103EAE31E2E9DC1FB44F98CD
+ip ssh server algorithm publickey ssh-ed25519
+ip access-list standard SITES
+ 10 permit 203.0.113.0 0.0.0.255
+!
+!
+control-plane
+!
+alias exec srs show run | sec
+alias exec siib show ip interface brief
+alias exec sir show ip route
+!
+line con 0
+ logging synchronous
+line aux 0
+line vty 0 4
+ login local
+ transport input ssh
+!
+!
+!
+!
+end

@@ -1,0 +1,93 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "isp",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 140,
+        "y": 240
+      }
+    },
+    {
+      "id": "sw-ext",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 20,
+        "y": 400
+      }
+    },
+    {
+      "id": "sw-int",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 20,
+        "y": 720
+      }
+    },
+    {
+      "id": "rtr2",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 500,
+        "y": 660
+      }
+    },
+    {
+      "id": "virbr0",
+      "position": {
+        "x": 140,
+        "y": 80
+      }
+    },
+    {
+      "id": "fw1",
+      "position": {
+        "x": -60,
+        "y": 540
+      }
+    },
+    {
+      "id": "fw2",
+      "position": {
+        "x": 160,
+        "y": 540
+      }
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": 140,
+        "y": 840
+      }
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": 280,
+        "y": 780
+      }
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": 880,
+        "y": 340
+      }
+    },
+    {
+      "id": "n4",
+      "position": {
+        "x": 1080,
+        "y": 380
+      }
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}

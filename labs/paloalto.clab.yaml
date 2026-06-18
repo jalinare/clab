@@ -1,0 +1,44 @@
+# topology documentation: 
+name: pa
+prefix: basic
+
+topology:
+  groups:
+    paloalto:
+      kind: paloalto_panos
+      image: vrnetlab/paloalto_pa-vm:11.0.0
+      env:
+        QEMU_MEMORY: "8192"
+        QEMU_SMP: "2"
+        QEMU_CPU: "host"
+    client:
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
+  nodes:
+    virbr0:
+      kind: bridge
+    isp:
+      kind: cisco_iol
+      image: jalinare/cisco_iol:17.16.01
+      type: iol
+      startup-config: "configs/isp.cfg.partial"
+    fw-a:
+      group: paloalto
+    fw-b:
+      group: paloalto
+    n1:
+      group: client
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
+    n2:
+      group: client
+      kind: linux
+      image: ghcr.io/hellt/network-multitool:latest
+  links:
+    - endpoints: [ "isp:e0/1", "virbr0:eth1" ]
+    - endpoints: [ "isp:e0/2", "fw-a:Ethernet1/1" ]
+    - endpoints: [ "isp:e0/3", "fw-a:Ethernet1/2" ]
+    - endpoints: [ "isp:e1/0", "fw-b:Ethernet1/1" ]
+    - endpoints: [ "isp:e1/1", "fw-b:Ethernet1/2" ]
+    - endpoints: [ "fw-a:Ethernet1/3", "n1:eth1" ]
+    - endpoints: [ "fw-b:Ethernet1/4", "n2:eth1" ]

@@ -1,0 +1,24 @@
+name: cisco
+prefix: test
+
+topology:
+  nodes:
+    sw1:
+      kind: cisco_iol
+      image: jalinare/cisco_iol:L2-17.16.01
+      type: L2
+    rtr1:
+      kind: cisco_iol
+      image: jalinare/cisco_iol:17.16.01
+      type: iol
+#    n9kv1:
+#      kind: cisco_n9kv
+#      image: jalinare/cisco_n9kv:9300-10.3.1.F
+#    c8kv1:
+#      kind: cisco_c8000v
+#      image: jalinare/cisco_c8000v:17.15.01a
+  links:
+    - endpoints: ["sw1:e0/1", "rtr1:e0/1"]
+#    - endpoints: ["sw1:e0/2", "n9kv1:Et1/1"]
+#    - endpoints: ["sw1:e0/3", "c8kv1:Gi2"]
+    
