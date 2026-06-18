@@ -39,8 +39,6 @@ topology:
       group: client
     n3:
       group: client
-    n4:
-      group: client
     rtr2:
       group: router
   links:
@@ -60,4 +58,7 @@ topology:
 
     - endpoints: [ "fw1:port6", "fw2:port6" ]
     - endpoints: [ "fw1:port7", "fw2:port7" ]
+
+    - endpoints: [ "rtr2:e0/2", "isp:1/0"]
+    - endpoints: [ "rtr2:e0/3", "n3:eth1"]
 
