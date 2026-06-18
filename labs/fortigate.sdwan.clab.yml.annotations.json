@@ -1,0 +1,141 @@
+{
+  "freeTextAnnotations": [],
+  "freeShapeAnnotations": [],
+  "trafficRateAnnotations": [],
+  "groupStyleAnnotations": [],
+  "networkNodeAnnotations": [],
+  "nodeAnnotations": [
+    {
+      "id": "isp",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 320,
+        "y": 260
+      }
+    },
+    {
+      "id": "sw1-hub",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 120,
+        "y": 340
+      }
+    },
+    {
+      "id": "sw2-hub",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 120,
+        "y": 220
+      }
+    },
+    {
+      "id": "sw1-site1",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 560,
+        "y": 340
+      }
+    },
+    {
+      "id": "sw2-site1",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 560,
+        "y": 220
+      }
+    },
+    {
+      "id": "sw1-site2",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 340,
+        "y": 500
+      }
+    },
+    {
+      "id": "sw2-site2",
+      "interfacePattern": "e0/{n}",
+      "position": {
+        "x": 460,
+        "y": 500
+      }
+    },
+    {
+      "id": "virbr0",
+      "position": {
+        "x": 320,
+        "y": 100
+      }
+    },
+    {
+      "id": "fw1-hub",
+      "position": {
+        "x": -40,
+        "y": 340
+      }
+    },
+    {
+      "id": "fw2-hub",
+      "position": {
+        "x": -40,
+        "y": 220
+      }
+    },
+    {
+      "id": "fw1-site1",
+      "position": {
+        "x": 720,
+        "y": 220
+      }
+    },
+    {
+      "id": "fw2-site1",
+      "position": {
+        "x": 720,
+        "y": 340
+      }
+    },
+    {
+      "id": "fw1-site2",
+      "position": {
+        "x": 340,
+        "y": 620
+      }
+    },
+    {
+      "id": "fw2-site2",
+      "position": {
+        "x": 460,
+        "y": 620
+      }
+    },
+    {
+      "id": "n1",
+      "position": {
+        "x": 40,
+        "y": 420
+      },
+      "icon": "client"
+    },
+    {
+      "id": "n2",
+      "position": {
+        "x": 660,
+        "y": 440
+      },
+      "icon": "client"
+    },
+    {
+      "id": "n3",
+      "position": {
+        "x": 260,
+        "y": 580
+      },
+      "icon": "client"
+    }
+  ],
+  "edgeAnnotations": [],
+  "aliasEndpointAnnotations": [],
+  "viewerSettings": {}
+}
